@@ -1,4 +1,4 @@
-package com.example.test_bitnet.presenter
+package com.example.test_bitnet.presentation
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

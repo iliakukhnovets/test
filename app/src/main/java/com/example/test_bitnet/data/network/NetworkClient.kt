@@ -7,14 +7,12 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 
 object NetworkClient {
 
-    private var retrofit = Retrofit.Builder()
-        .baseUrl(BuildConfig.BASE_URL)
-        .addConverterFactory(MoshiConverterFactory.create())
-        .build()
-
-    private var currencyApi = retrofit.create(CurrencyApi::class.java)
-
-    fun createCurrencyApi(): CurrencyApi {
-        return currencyApi
+    private fun getRetrofit(): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl(BuildConfig.BASE_URL)
+            .addConverterFactory(MoshiConverterFactory.create())
+            .build()
     }
+
+    val currencyApi: CurrencyApi = getRetrofit().create(CurrencyApi::class.java)
 }

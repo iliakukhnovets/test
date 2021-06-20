@@ -1,4 +1,4 @@
-package com.example.test_bitnet.presenter
+package com.example.test_bitnet.presentation
 
 import android.content.Context
 import android.net.ConnectivityManager
@@ -53,7 +53,7 @@ class CurrencyFragment : Fragment() {
     }
 
     private fun loadCurrency() {
-        NetworkClient.createCurrencyApi().getAllCurrencies().enqueue(
+        NetworkClient.currencyApi.getAllCurrencies().enqueue(
             object : Callback<MutableList<CurrencyResponse>> {
                 override fun onResponse(
                     call: Call<MutableList<CurrencyResponse>>,
@@ -115,7 +115,7 @@ class CurrencyFragment : Fragment() {
                     }
                 }
             setRecyclerViewAdapter(listOfCurrencyCommon)
-            initializeDataBase()
+            //initializeDataBase()
         }
         return listOfCurrencyCommon
     }

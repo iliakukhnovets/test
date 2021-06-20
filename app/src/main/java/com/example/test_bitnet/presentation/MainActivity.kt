@@ -1,4 +1,4 @@
-package com.example.test_bitnet.presenter
+package com.example.test_bitnet.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -20,7 +20,3 @@ class MainActivity : AppCompatActivity() {
         navigationController.navigate(R.id.currencyFragment)
     }
 }
-
-//TODO запросы не приносят нужные данные, совмещение 2-ух запросов и вывод результата в адаптер
-//TODO отображение оффлайн
-//TODO no action bar theme

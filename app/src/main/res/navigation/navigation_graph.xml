@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/currencyFragment"
-        android:name="com.example.test_bitnet.presenter.CurrencyFragment"
+        android:name="com.example.test_bitnet.presentation.CurrencyFragment"
         android:label="CurrencyFragment" >
     </fragment>
 </navigation>
