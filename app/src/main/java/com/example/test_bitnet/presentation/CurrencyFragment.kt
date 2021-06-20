@@ -10,8 +10,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.room.Room
-import com.example.test_bitnet.data.database.RoomDataBaseClient
-import com.example.test_bitnet.data.database.entity.CurrencyEntity
+import com.example.test_bitnet.data.database.DataBaseClient
+import com.example.test_bitnet.data.database.model.CurrencyModel
 import com.example.test_bitnet.data.network.NetworkClient
 import com.example.test_bitnet.data.network.response.CurrencyResponse
 import com.example.test_bitnet.databinding.CurrenciesScreenBinding
@@ -123,12 +123,12 @@ class CurrencyFragment : Fragment() {
     private fun initializeDataBase() {
         CoroutineScope(Dispatchers.IO).launch {
             val dataBase = context?.let {
-                Room.databaseBuilder(it, RoomDataBaseClient::class.java, "database-currency")
+                Room.databaseBuilder(it, DataBaseClient::class.java, "database-currency")
                     .build()
             }
             val dataBaseDao = dataBase?.currencyDao()
             val list = listOfCurrencyCommon
-            dataBaseDao?.insertAllData(list as MutableList<CurrencyEntity>)
+            dataBaseDao?.insertAllData(list as MutableList<CurrencyModel>)
         }
     }
 
