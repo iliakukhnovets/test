@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="currencies_item_tag_text_size_normal">16sp</dimen>
+    <dimen name="currencies_item_margin_small">8sp</dimen>
+    <dimen name="currencies_item_margin_normal">16sp</dimen>
+    <dimen name="currencies_item_elevation">10dp</dimen>
+</resources>

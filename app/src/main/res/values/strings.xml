@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">test_bitnet</string>
+    <string name="currencies_screen_national_bank">Курсы валют Национального банка РБ</string>
+</resources>

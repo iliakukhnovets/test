@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="currencies_screen_tag_text_size_large">20sp</dimen>
+    <dimen name="currencies_screen_margin_normal">16dp</dimen>
+    <dimen name="currencies_screen_margin_small">8dp</dimen>
+</resources>
