@@ -1,4 +1,4 @@
-package com.example.test_bitnet.presentation
+package com.example.test_bitnet
 
 import android.app.Application
 

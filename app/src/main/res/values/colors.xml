@@ -8,4 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#D1CFCF</color>
+
+    <color name="currency_red">#B30808</color>
+    <color name="currency_green">#21CC28</color>
+    <color name="currency_gray">#777575</color>
+
 </resources>
