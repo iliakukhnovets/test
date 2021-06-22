@@ -18,6 +18,15 @@ abstract class DataBaseClient : RoomDatabase() {
         @Volatile
         private var INSTANCE: DataBaseClient? = null
 
+        // Нужна двойная нал проверка
+        //        fun getInstance(context: Context): DataBaseClient  {
+        //            return INSTANCE ?: synchronized(this) {
+        //                INSTANCE ?: buildDatabase(context).also {
+        //                    INSTANCE = it
+        //                }
+        //            }
+        //        }
+        // Тип так
         fun getInstance(context: Context): DataBaseClient {
             val tempInstance = INSTANCE
             if (tempInstance != null) {

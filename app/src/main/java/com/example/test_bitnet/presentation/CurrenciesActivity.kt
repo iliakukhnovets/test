@@ -8,13 +8,22 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.test_bitnet.App
 import com.example.test_bitnet.data.database.DataBaseClient
 import com.example.test_bitnet.data.network.NetworkClient
 import com.example.test_bitnet.data.network.Status
 import com.example.test_bitnet.databinding.CurrenciesActivityBinding
 
 class CurrenciesActivity : AppCompatActivity() {
+
+    /**
+     * По собесу
+     * 1. В коллекциях есть пробелы, разберись как работают и почему
+     * 2. Doze mode разберись что и почему там проиходит
+     * 3. Многопоточность Java
+     * 4. Разберись с жизненным циклом вью
+     * Были еще какие-то мелкие недочеты, но если честно, то я уже их не помню. В целом для джуна довольно неплохо)
+     */
+
 
     private lateinit var viewModel: CurrencyViewModel
     private lateinit var adapter: CurrenciesAdapter
@@ -36,9 +45,8 @@ class CurrenciesActivity : AppCompatActivity() {
         viewModel = ViewModelProviders.of(
             this,
             ViewModelFactory(
-                App.instance,
                 NetworkClient,
-                DataBaseClient.getInstance(App.instance)
+                DataBaseClient.getInstance(applicationContext)
             )
         ).get(CurrencyViewModel::class.java)
     }
@@ -48,7 +56,7 @@ class CurrenciesActivity : AppCompatActivity() {
         adapter = CurrenciesAdapter(arrayListOf())
         binding.recyclerView.addItemDecoration(
             DividerItemDecoration(
-                binding.recyclerView.context,
+                this,
                 (binding.recyclerView.layoutManager as LinearLayoutManager).orientation
             )
         )
@@ -56,7 +64,7 @@ class CurrenciesActivity : AppCompatActivity() {
     }
 
     private fun setupObservers() {
-        viewModel.getCurrencies().observe(this, Observer {
+        viewModel.getCurrencies().observe(this, {
             it?.let { resource ->
                 when (resource.status) {
                     Status.SUCCESS -> {
