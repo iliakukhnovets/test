@@ -10,9 +10,11 @@ interface CurrencyApi {
     @GET("currencies")
     suspend fun getAllCurrencies(): List<CurrencyResponse>
 
+    // periodicity Лучше через @query задавать
     @GET("rates?periodicity=0")
     suspend fun getTodayRates(): List<CurrencyRateResponse>
 
+    // Не стоит дублировать метод, если у 2 методов одинаковый функционал
     @GET("rates?periodicity=0")
     suspend fun getRatesByDate(@Query("ondate") onDate: String): List<CurrencyRateResponse>
 }

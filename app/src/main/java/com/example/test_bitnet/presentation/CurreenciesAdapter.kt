@@ -13,6 +13,7 @@ class CurrenciesAdapter(private val currencies: ArrayList<CurrencyItem>) :
 
     class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
+        // отенциальный мемори лик биндинг нужно освобождать когда вью отсоединяется от ресайклера.
         private val binding = CurrenciesItemViewBinding.bind(itemView)
 
         fun bind(currencyItem: CurrencyItem) {
